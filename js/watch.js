@@ -29,7 +29,7 @@ fetch(`https://gogoanime.consumet.org/anime-details/`+ query)
   .then(data => {
 const episodesDiv = document.getElementById("episodesw");
 
-let html = " <h2> Episodes </h2>";
+let html = " ";
 
 data.episodesList.forEach(episode => {
   html += `<a href="https://kiriyako.github.io/amai/watch?query=${query}&ep=${episode.episodeNum}"> <text class="iepisode"> &nbsp &nbsp &nbsp ${episode.episodeNum} </a>&nbsp &nbsp &nbsp &nbsp</text>`;
@@ -44,7 +44,7 @@ fetch('https://gogoanime.consumet.org/vidcdn/watch/'+ query + '-' + 'episode' + 
     
     const episodewatchDiv = document.getElementById('episodewatch');
     const refererDiv = document.createElement('div');
-    refererDiv.innerHTML = `<iframe height="580" width="1000" src="${data.Referer} title="Episode" </iframe> <p></p>`
+    refererDiv.innerHTML = `<h2> Currently watching Episode ${ep}. Please use an adblock extension because the external <br> video player puts a lot of ads. </h2>  <iframe allowfullscreen = "true" height="580" width="1000" src="${data.Referer} title="Episode" </iframe> <p></p>`
 
     episodewatchDiv.appendChild(refererDiv);
 
