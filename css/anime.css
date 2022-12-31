@@ -29,6 +29,8 @@ body {
   color: white;
   top: 50px;
   left: 0;
+  white-space: pre-wrap;
+
 }
 
 
@@ -166,6 +168,7 @@ ul li:hover{
   top: 50px;
   left: 0;
   z-index: -1;
+  white-space: pre-wrap;
 }
 
 #episodewatch {
