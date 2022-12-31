@@ -44,7 +44,7 @@ fetch('https://gogoanime.consumet.org/vidcdn/watch/'+ query + '-' + 'episode' + 
     
     const episodewatchDiv = document.getElementById('episodewatch');
     const refererDiv = document.createElement('div');
-    refererDiv.innerHTML = `<h2> Currently watching Episode ${ep}. Please use an adblock extension because the external <br> video player puts a lot of ads. </h2>  <iframe allowfullscreen = "true" height="580" width="1000" src="${data.Referer} title="Episode" </iframe> <p></p>`
+    refererDiv.innerHTML = `<h2> Currently watching Episode ${ep}. Please use an adblock extension because the external <br> video player puts a lot of ads. </h2>  <iframe frameBorder="0" allowfullscreen = "true" height="580" width="1000" src="${data.Referer} title="Episode" </iframe> <p></p>`
 
     episodewatchDiv.appendChild(refererDiv);
 
