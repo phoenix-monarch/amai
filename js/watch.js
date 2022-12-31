@@ -32,7 +32,7 @@ const episodesDiv = document.getElementById("episodesw");
 let html = " <h2> Episodes </h2>";
 
 data.episodesList.forEach(episode => {
-  html += `<a href="https://kiriyako.github.io/amai/watch?query=${query}&ep=${ep}"> <text class="iepisode"> &nbsp &nbsp &nbsp ${episode.episodeNum} </a>&nbsp &nbsp &nbsp &nbsp</text>`;
+  html += `<a href="https://kiriyako.github.io/amai/watch?query=${query}&ep=${episode.episodeNum}"> <text class="iepisode"> &nbsp &nbsp &nbsp ${episode.episodeNum} </a>&nbsp &nbsp &nbsp &nbsp</text>`;
 });
 
 episodesDiv.innerHTML = html;
