@@ -1,107 +1,83 @@
+
 <html>
-    <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Watch Anime Online - amai</title>
-        <link rel="stylesheet" href="css/home.css">
-    </head>
-    <style>
-        
-        body{
-            background-color: rgb(16, 15, 19)!important;
-            color: white!important;  
-            margin: 20px;
-        }
-        #recentrelease {
-  margin-top: 50px!important;
+  <head>
+      <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Watch Anime Online - amai</title>
+      <link rel="stylesheet" href="css/home.css">
+  </head>
+  <style>
+      
+      body{
+          background-color: rgb(16, 15, 19)!important;
+          color: white!important;  
+          margin: 20px;
+      }
+      #recentrelease {
+margin-top: 50px!important;
 }
 #recentrelease img {
-  margin-right: 10px!important;
+margin-right: 10px!important;
 }
 
 #recentrelease p {
-  margin: 0!important;
+margin: 0!important;
 }
 #slideshow-container {
-    display: none !important;
+  display: none !important;
 }
 
-        </style>
-    <body onload="showSlideshow()">
-        
-        <div id = "navbar">
-            <div class="logo">
-                <img src="img/logo.png" alt="amai" width="130">
-                </div>
-              <nav>
-                <ul>
-                  
-                    <a href="https://kiriyako.github.io/anicard/"> <li>AniCard</li> </a>
-                    <nobr>                 <li>&nbsp</li>
-               </ul>
-                </nav>
-                <br>
-                    <form> <input autocomplete="off" id="query" name="query" placeholder="Search an anime" type="input"> </nobr>
-                        <input style="display: none;" type="text" id="query">
-                        <script>
-                     document.addEventListener('keydown', e => {
-                    if (e.key == "Enter") {
-                     const query = document.getElementById("query").value
-                    window.location.replace("https://kiriyako.github.io/amai/results?query=" + query)
-      }
-    })
-                        </script>                    
-                                    </form>
-        </div>
-            <h1>Top Airing</h1>
+      </style>
+  <body onload="showSlideshow()">
+      
+      <div id = "navbar">
+          <div style="border-radius: 0px;" class="logo">
+              <img style="border-radius: 0px;" src="img/logo.png" alt="amai" width="130">
+              </div>
+            <nav>
+              <ul>
+                
+                  <a href="https://kiriyako.github.io/anicard/"> <li>AniCard</li> </a>
+                  <nobr>                 <li>&nbsp</li>
+             </ul>
+              </nav>
+              <br>
+                  <form> <input autocomplete="off" id="query" name="query" placeholder="Search an anime" type="input"> </nobr>
+                      <input style="display: none;" type="text" id="query">
+                      <script>
+                   document.addEventListener('keydown', e => {
+                  if (e.key == "Enter") {
+                   const query = document.getElementById("query").value
+                  window.location.replace("https://kiriyako.github.io/amai/results?query=" + query)
+    }
+  })
+                      </script>                    
+                                  </form>
+      </div>
+          <h1>Top Airing</h1>
 
-            <div id="slideshow"></div>
-        <script>
-            function showSlideshow() {
-                console.log("showSlideshow called");
+          <div id="slideshow"></div>
+      
+      <div id = "recentrelease">
+      </div> 
+      <div id = "popular">
+      </div>
+      <p></p>
 
-                document.getElementById("slideshow-container").style.display = "block";
-            }
-        </script>
-          <script>
-          var slideIndex = 1;
-          showDivs(slideIndex);
-          
-          function plusDivs(n) {
-            showDivs(slideIndex += n);
-          }
-          
-          function showDivs(n) {
-            var i;
-            var x = document.getElementsByClassName("mySlides");
-            if (n > x.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = x.length}
-            for (i = 0; i < x.length; i++) {
-               x[i].style.display = "none";  
-            }
-            x[slideIndex-1].style.display = "block";  
-          }
-          </script>
-        <div id = "recentrelease">
-        </div> 
-        <div id = "popular">
-        </div>
-        <p></p>
-
-       
-        <div id="movies">
-        </div>
-        <div id = "footerr">
-           <h2 style="text-align:center; background-color: rgba(16, 15, 19, 0.8); color: white; font-size: 24px;">(C) amai 2022-23 <br> Note- amai does NOT host any files on it's servers. All content is provided by third-party services. <br> 
-        <p></p>Source Code
-        <p></p>Help
-        <p></p>About
-        <p></p>Privacy
-        <p></p>Thanks for using!
-        </h2> 
-        </div>
-       <script>
-       </script>
-    <script src = "js/home.js"></script>
-    </body>
+     
+      <div id="movies">
+      </div>
+      <div id = "footerr">
+         <h2 style="text-align:center; background-color: rgba(16, 15, 19, 0.8); color: white; font-size: 24px;">(C) amai 2022-23 <br> Note- amai does NOT host any files on it's servers. All content is provided by third-party services. <br> 
+      <p></p>Source Code
+      <p></p>Help
+      <p></p>About
+      <p></p>Privacy
+      <p></p>Thanks for using!
+      </h2> 
+      </div>
+     <script>
+     </script>
+  <script src = "js/home.js"></script>
+  </body>
 </html>

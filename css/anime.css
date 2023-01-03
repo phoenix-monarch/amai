@@ -197,3 +197,7 @@ a:link {
     width: 100%;
     z-index:99999;
   } 
+
+  img{
+    border-radius: 20px;
+  }
