@@ -3,10 +3,26 @@ var url = new URL(url_string);
 var query = url.searchParams.get("query");
 var tvid = url.searchParams.get("id");
 
+let showingResultsForDisplayed = false;
+
 fetch('https://gogoanime.consumet.org/search?keyw='+ query)
 .then(response => response.json())
 .then(data => {
     var cardDiv = document.getElementById("card");
+
+    if (!showingResultsForDisplayed) {
+        const showingResultsFor = document.createElement("h2");
+        showingResultsFor.innerText = "Showing Results For " + query;
+
+        cardDiv.insertBefore(showingResultsFor, cardDiv.firstChild);
+
+        const dataCount = document.createElement("h3");
+        dataCount.innerText = `${data.length} search results`;
+
+        cardDiv.insertBefore(dataCount, showingResultsFor.nextSibling);
+
+        showingResultsForDisplayed = true;
+    }
 
 for (var i = 0; i < data.length; i++) {
   var anime = data[i];
@@ -19,4 +35,3 @@ for (var i = 0; i < data.length; i++) {
   cardDiv.appendChild(animeDiv);
 }
 });
-
