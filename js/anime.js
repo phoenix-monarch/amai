@@ -14,6 +14,7 @@ fetch('https://gogoanime.consumet.org/anime-details/'+ query)
 <h3>Status: ${anime.status}</h3>
 <h3>Premiered: ${anime.releasedDate}</h3>
 <h3>Type: ${anime.type}</h3>
+<h3>Total Episodes: ${anime.totalEpisodes}</h3>
     `;
     document.getElementById('sidebar').appendChild(sideDataDiv);
 
@@ -29,5 +30,6 @@ fetch('https://gogoanime.consumet.org/anime-details/'+ query)
     document.title = "Watch " + anime.animeTitle + ' - amai';
 
 });
+
 
 
