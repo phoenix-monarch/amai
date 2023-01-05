@@ -42,5 +42,5 @@ fetch('https://gogoanime.consumet.org/recent-release')
       `;
     });
 
-    recent.innerHTML = html;
+    recent.innerHTML = `<h1>Top Airing</h1>` +    html;
   });

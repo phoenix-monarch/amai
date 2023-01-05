@@ -2,50 +2,97 @@
     <head>
         <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>amai - anime</title>
-        <link rel="stylesheet" href="css/anime.css">
+        <link rel="stylesheet" href="css/home.css">
+        <title>Anime Info - amai</title>
+
     </head>
+    <style>
+        
+        body{
+            background-color: rgb(16, 15, 19)!important;
+            color: white!important;  
+            margin: 20px;
+        }
+
+        #sidebar {
+  float: left;
+  width: 20%;
+}
+
+#synopsis {
+  float: right;
+  width: 80%;
+}
+#footerr {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+}
+svg {
+  vertical-align: middle;
+}
+#yes{
+display:inline-block;
+    border-radius: 20px;
+    border: 0px;
+    cursor: pointer;
+    background-color: #009dff;
+  
+}
+#yes a {
+  color: white;
+}
+
+#yes1{
+display:inline-block;
+    border-radius: 20px;
+    border: 0px;
+    cursor: pointer;
+    background-color: #ffffff;
+  
+}
+#yes1 a {
+  color: rgb(0, 0, 0);
+}
+
+
+        </style>
     <body>
+        
         <div id = "navbar">
             <div class="logo">
                 <img style="border-radius: 0px;" src="img/logo.png" alt="amai" width="130">
             </div>
               <nav>
-                <ul>    
-                <form> <input autocomplete="off" id="query" name="query" placeholder="Search an anime" type="input"> </nobr>
-                    <input style="display: none;" type="text" id="query">
-                    <script>
-                 document.addEventListener('keydown', e => {
-                if (e.key == "Enter") {
-                 const query = document.getElementById("query").value
-                window.location.replace("https://kiriyako.github.io/amai/results?query=" + query)
-  }
-})
-                    </script>
-                <a href="https://kiriyako.github.io/amai/"> <li>Home</li> </a>
-                <a href="https://kiriyako.github.io/anicard/"> <li>AniCard</li> </a>
-                <nobr>   
-                <li>&nbsp</li>
-            </form>
+                <ul>
+                  
+                    <a href="https://kiriyako.github.io/amai/"> <li>Home</li> </a>
+                    <a href="https://kiriyako.github.io/anicard/"> <li>AniCard</li> </a>                    <nobr>                 <li>&nbsp</li>
                </ul>
                 </nav>
+                <br>
+                <form> <input autocomplete="off" id="query" name="query" placeholder="Search an anime" type="input"> </nobr>
+                  <input style="display: none;" type="text" id="query">
+                  <script>
+               document.addEventListener('keydown', e => {
+              if (e.key == "Enter") {
+               const query = document.getElementById("query").value
+              window.location.replace("https://kiriyako.github.io/amai/results?query=" + query)
+}
+})
+                  </script>                    
+                              </form>
         </div>
-        <div id = "banner">
-        </div>
+        
         <div id = "sidebar">
+        </div> 
+        <div id="synopsis">
         </div>
-        <div id = "synopsis">
-        </div>
-        <div id="episodes">
-        </div>
-        <div id = "footer">
-           <h2 style="text-align:center; background-color: rgba(16, 15, 19, 0.8); color: white;">(C) amai 2022-23 <br> Note- amai does NOT host any files on it's servers. All content is provided by third-party services. <br> 
-        <p></p>Source Code
-        <p></p>Help
-        <p></p>About
-        <p></p>Privacy
-        <p></p>Thanks for using!
-        </h2> 
+        <div id = "footerr">
+           <h2>(C) amai 2022-23 <br> Note- amai does NOT host any files on it's servers. All content is provided by third-party services. <br> 
+</h2>
         </div>
        <script>
        </script>

@@ -22,6 +22,7 @@ fetch('https://gogoanime.consumet.org/search?keyw='+ query)
         cardDiv.insertBefore(dataCount, showingResultsFor.nextSibling);
 
         showingResultsForDisplayed = true;
+        document.title = "Searching for " + query;
     }
 
 for (var i = 0; i < data.length; i++) {

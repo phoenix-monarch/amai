@@ -1,54 +1,131 @@
-<html>
-    <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>amai - watch</title>
-        <link rel="stylesheet" href="css/anime.css">
-    </head>
-    <body>
-        <div id = "navbar">
-            <div class="logo">
-                <img style="border-radius: 0px;" src="img/logo.png" alt="amai" width="130">
-            </div>
-              <nav>
-                <ul>
-                    <form> <input autocomplete="off" id="query" name="query" placeholder="Search an anime" type="input"> </nobr>
-                        <input style="display: none;" type="text" id="query">
-                        <script>
-                     document.addEventListener('keydown', e => {
-                    if (e.key == "Enter") {
-                     const query = document.getElementById("query").value
-                    window.location.replace("https://kiriyako.github.io/amai/results?query=" + query)
-      }
-    })
-                        </script>                                      <a href="https://kiriyako.github.io/amai/"> <li>Home</li> </a>
-                        <a href="https://kiriyako.github.io/anicard/"> <li>AniCard</li> </a>
-                        <nobr>    
+    <html>
+        <head>
+            <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="css/home.css">
+            <title>Watch - amai</title>
+        </head>
+        <style>
+            
+            body{
+                background-color: rgb(16, 15, 19)!important;
+                color: white!important;  
+                margin: 20px;
+            }
 
-                <li>&nbsp</li>
-            </form>
-               </ul>
-                </nav>
-        </div>
-        <div id = "banner">
-        </div>
-        <div id = "info">
-        </div>
-        <div id = "episodewatch">
-        </div>
-        <div id="episodesw">
-        </div>
-        <div id = "footerr">
-           <h2 style="text-align:center; background-color: rgba(16, 15, 19, 0.8); color: white;">(C) amai 2022-23 <br> Note- amai does NOT host any files on it's servers. All content is provided by third-party services. <br> 
-        <p></p>Source Code
-        <p></p>Help
-        <p></p>About
-        <p></p>Privacy
-        <p></p>Thanks for using!
-        </h2> 
-        </div>
-       <script>
-       </script>
-    <script src = "js/watch.js"></script>
-    </body>
-</html>
+            #info {
+  float: left;
+  width: 20%;
+}
+
+#episodewatch {
+  float: right;
+  width: 80%;
+}
+
+#episodesw {
+  clear: both; /* This will clear the floats and allow the div to appear below the other elements */
+}
+
+#footerr {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+}
+
+svg {
+  vertical-align: middle;
+}
+
+#yes {
+  display: inline-block;
+  border-radius: 20px;
+  border: 0px;
+  cursor: pointer;
+  background-color: #009dff;
+}
+
+#yes a {
+  color: white;
+}
+
+#yes1 {
+  display: inline-block;
+  border-radius: 20px;
+  border: 0px;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+
+#yes1 a {
+  color: rgb(0, 0, 0);
+}
+
+#episodew {
+  margin-left: 310px;
+  white-space: pre-wrap;
+}
+
+.iepisode {
+  display: inline-block;
+  justify-content: center;
+  align-items: center; /* This will vertically align the elements */
+  font-size: 18px;
+  border: 1px solid white;
+  cursor: pointer;
+  width: 150px; /* This will give the elements a fixed width */
+  height: 50px; /* This will give the elements a fixed height */
+  text-align: center; /* This will center the text within the elements */
+  line-height: 50px; /* This will vertically center the text within the elements */
+  color: white;
+}
+
+#iepisode a {
+  color: white;
+}
+
+
+            </style>
+        <body>
+            
+            <div id = "navbar">
+                <div class="logo">
+                    <img style="border-radius: 0px;" src="img/logo.png" alt="amai" width="130">
+                </div>
+                <nav>
+                    <ul>
+                    
+                        <a href="https://kiriyako.github.io/amai/"> <li>Home</li> </a>
+                        <a href="https://kiriyako.github.io/anicard/"> <li>AniCard</li> </a>                    <nobr>                 <li>&nbsp</li>
+                </ul>
+                    </nav>
+                    <br>
+                    <form> <input autocomplete="off" id="query" name="query" placeholder="Search an anime" type="input"> </nobr>
+                    <input style="display: none;" type="text" id="query">
+                    <script>
+                document.addEventListener('keydown', e => {
+                if (e.key == "Enter") {
+                const query = document.getElementById("query").value
+                window.location.replace("https://kiriyako.github.io/amai/results?query=" + query)
+    }
+    })
+                    </script>                    
+                                </form>
+            </div>
+            
+            <div id = "info">
+            </div> 
+            <div id="episodewatch">
+            </div>
+            <div id="episodesw"></div>
+            <div id = "footerr">
+            <h2>(C) amai 2022-23 <br> Note- amai does NOT host any files on it's servers. All content is provided by third-party services. <br> 
+    </h2>
+            </div>
+        <script>
+        </script>
+        <script src = "js/watch.js"></script>
+        </body>
+    </html>
