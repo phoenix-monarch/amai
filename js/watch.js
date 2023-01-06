@@ -1,8 +1,11 @@
+//Code for getting parameters from URL
 var url_string = window.location;
 var url = new URL(url_string);
 var query = url.searchParams.get("query");
 var ep = url.searchParams.get("ep");
 var tvid = url.searchParams.get("id");
+
+//Code which fetches API and displays info and other stuff
 fetch('https://gogoanime.consumet.org/anime-details/'+ query)
 .then(response => response.json())
 .then(data =>  {
@@ -16,7 +19,7 @@ fetch('https://gogoanime.consumet.org/anime-details/'+ query)
 <h3>Type: ${anime.type}</h3>
     `;
     document.getElementById('info').appendChild(sideDataDiv);
-    document.title = "Watch " + anime.animeTitle + ' ' + 'Episode '+ ep + '- amai';
+    document     = "Watch " + anime.animeTitle + ' ' + 'Episode '+ ep + '- amai';
 
 });
 
@@ -46,4 +49,57 @@ fetch('https://gogoanime.consumet.org/vidcdn/watch/'+ query + '-' + 'episode' + 
     episodewatchDiv.appendChild(refererDiv);
 
 
+});
+
+//Code for searching the last query the user made
+const queryInput = document.getElementById("query");
+if (localStorage.getItem("query")) {
+  queryInput.value = localStorage.getItem("query");
+}
+queryInput.addEventListener("input", function() {
+  localStorage.setItem("query", this.value);
+});
+
+//Code which fetches API and displays autocomplete results
+const autocompleteResults = document.getElementById("autocomplete-results");
+function debounce(fn, delay) {
+  let timeoutId;
+  return function(...args) {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+    timeoutId = setTimeout(() => {
+      fn(...args);
+      timeoutId = null;
+    }, delay);
+  };
+}
+
+const debouncedInput = debounce(function(event) {
+  autocompleteResults.innerHTML = "";
+
+  const query = document.querySelector("#query").value;
+
+  fetch(`https://gogoanime.consumet.org/search?keyw=${query}`)
+    .then(response => response.json())
+    .then(data => {
+      data.slice(0 , 4).forEach(result => {
+        const li = document.createElement("li");
+        li.innerText = result.animeTitle;
+
+        li.addEventListener("click", function(event) {
+          window.location.href = `https://kiriyako.github.io/amai/anime?query=${result.animeId}`;
+        });
+
+        autocompleteResults.appendChild(li);
+      });
+    });
+}, 500);
+
+queryInput.addEventListener("input", debouncedInput);
+
+document.addEventListener("click", function(event) {
+  if (event.target !== autocompleteResults) {
+    autocompleteResults.innerHTML = "";
+  }
 });
