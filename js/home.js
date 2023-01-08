@@ -74,7 +74,7 @@ const debouncedInput = debounce(function(event) {
 
   const query = document.querySelector("#query").value;
 
-  fetch(`https://api.consumet.org/anime/enime/${query}`)
+  fetch('https://api.consumet.org/anime/gogoanime/'+ query)
     .then(response => response.json())
     .then(data => {
       data.results.slice(0,4).forEach(result => {
