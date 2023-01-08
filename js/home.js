@@ -6,7 +6,7 @@ fetch('https://gogoanime.consumet.org/recent-release')
     data.slice(0, 1).forEach(anime => {
       html += `
            <img height="350" width="250" src="${anime.animeImg}" style="display: flex;"> <p></p>
-         <a href="https://kiriyako.github.io/amai/watch?query=${anime.animeId}&ep=${anime.episodeNum}"> <div id="rr"> ${anime.animeTitle}  <br> 
+         <a href="https://kiriyako.github.io/amai/anime?id=${anime.animeId}"> <div id="rr"> ${anime.animeTitle}  <br> 
            Episode ${anime.episodeNum} </a> </div>
       `;
     });
@@ -22,7 +22,7 @@ fetch('https://gogoanime.consumet.org/recent-release')
     data.slice(0, 1).forEach(anime => {
       html += `
            <img height="350" width="250" src="${anime.animeImg}" style="display: flex;"> <p></p>
-         <a href="https://kiriyako.github.io/amai/anime?query=${anime.animeId}"> <div id="rr"> ${anime.animeTitle}  <br> 
+         <a href="https://kiriyako.github.io/amai/anime?id=${anime.animeId}"> <div id="rr"> ${anime.animeTitle}  <br> 
            </div>
       `;
     });
@@ -37,7 +37,7 @@ fetch('https://gogoanime.consumet.org/recent-release')
     const recent = document.getElementById("slideshow");
     data.slice(0, 1).forEach(anime => {
       html += `<img height="350" width="250" src="${anime.animeImg}" style="display: flex;"> <p></p>
-      <a href="https://kiriyako.github.io/amai/anime?query=${anime.animeId}"> <div id="rr"> ${anime.animeTitle}  <br> 
+      <a href="https://kiriyako.github.io/amai/anime?id=${anime.animeId}"> <div id="rr"> ${anime.animeTitle}  <br> 
         </div>
       `;
     });
@@ -74,15 +74,15 @@ const debouncedInput = debounce(function(event) {
 
   const query = document.querySelector("#query").value;
 
-  fetch(`https://gogoanime.consumet.org/search?keyw=${query}`)
+  fetch(`https://api.consumet.org/anime/enime/${query}`)
     .then(response => response.json())
     .then(data => {
-      data.slice(0,4).forEach(result => {
+      data.results.slice(0,4).forEach(result => {
         const li = document.createElement("li");
-        li.innerText = result.animeTitle;
+        li.innerText = result.title;
 
         li.addEventListener("click", function(event) {
-          window.location.href = `https://kiriyako.github.io/amai/anime?query=${result.animeId}`;
+          window.location.href = `https://kiriyako.github.io/amai/anime?id=${result.id}`;
         });
 
         autocompleteResults.appendChild(li);

@@ -7,7 +7,7 @@ var tvid = url.searchParams.get("id");
 let showingResultsForDisplayed = false;
 
 //Code which fetches API and displays info and other stuff
-fetch('https://gogoanime.consumet.org/search?keyw='+ query)
+fetch('https://api.consumet.org/anime/gogoanime/'+ query)
 .then(response => response.json())
 .then(data => {
     var cardDiv = document.getElementById("card");
@@ -16,17 +16,20 @@ fetch('https://gogoanime.consumet.org/search?keyw='+ query)
         document.title = "Searching for " + query;
     
 
-for (var i = 0; i < data.length; i++) {
-  var anime = data[i];
+for (var i = 0; i < data.results.length; i++) {
+  var anime = data.results[i];
   var animeDiv = document.createElement("div");
+  var cardDiv = document.getElementById("card");
+cardDiv.style.marginTop = "20px"; 
   animeDiv.style.display = "inline-block";
   animeDiv.style.marginBottom = "20px";
   animeDiv.style.width = "300px";
 
-  animeDiv.innerHTML = `<img height="350" width="250" src="${anime.animeImg}" alt="${anime.animeTitle}"> <a href="https://kiriyako.github.io/amai/anime?query=${anime.animeId}"  </a> <h2>${anime.animeTitle}</h2>`;
+  animeDiv.innerHTML = `<img height="350" width="250" src="${anime.image}" alt="${anime.title}"> <a href="https://kiriyako.github.io/amai/anime?id=${anime.id}"  </a> <h2>${anime.title}</h2>`;
   cardDiv.appendChild(animeDiv);
 }
 });
+
 
 //Code for searching the last query the user made
 const queryInput = document.getElementById("query");
@@ -36,5 +39,3 @@ if (localStorage.getItem("query")) {
 queryInput.addEventListener("input", function() {
   localStorage.setItem("query", this.value);
 });
-
-

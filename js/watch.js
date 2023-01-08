@@ -3,51 +3,54 @@ var url_string = window.location;
 var url = new URL(url_string);
 var query = url.searchParams.get("query");
 var ep = url.searchParams.get("ep");
-var tvid = url.searchParams.get("id");
+var id = url.searchParams.get("id");
+var no = url.searchParams.get("no");
 
 //Code which fetches API and displays info and other stuff
-fetch('https://gogoanime.consumet.org/anime-details/'+ query)
+fetch('https://api.consumet.org/anime/gogoanime/info/'+ id)
 .then(response => response.json())
 .then(data =>  {
     const anime = data;
-    const sideDataDiv = document.createElement('div');
+    const sideDataDiv = document.createElement('div');  
     sideDataDiv.innerHTML = ` 
-<img height="380" width="260" src = "${anime.animeImg}"> </img> <br>
-<h2>${anime.animeTitle}</h2>
+<img height="380" width="260" src = "${anime.image}"> </img> <br>
+<h2>${anime.title}</h2>
 <h3>Status: ${anime.status}</h3>
-<h3>Premiered: ${anime.releasedDate}</h3>
+<h3>Premiered: ${anime.releaseDate}</h3>
 <h3>Type: ${anime.type}</h3>
+<h3>Total Episodes: ${anime.episodes.length}</h3>
+
     `;
     document.getElementById('info').appendChild(sideDataDiv);
     document     = "Watch " + anime.animeTitle + ' ' + 'Episode '+ ep + '- amai';
 
-});
-
-fetch(`https://gogoanime.consumet.org/anime-details/`+ query)
-  .then(response => response.json())
-  .then(data => {
-const episodesDiv = document.getElementById("episodesw");
-
-let html = " ";
-
-data.episodesList.forEach(episode => {
-  html += `<a href="https://kiriyako.github.io/amai/watch?query=${query}&ep=${episode.episodeNum}"> <text class="iepisode"> ${episode.episodeNum} </a> </text>`;
-
-});
-
-episodesDiv.innerHTML = `<h2>Episodes</h2>` + html;
-});
-   
-fetch('https://gogoanime.consumet.org/vidcdn/watch/'+ query + '-' + 'episode' + '-' + ep)
+fetch('https://api.consumet.org/anime/gogoanime/info/'+ id)
+    .then(response => response.json())
+    .then(data => {
+  const episodesDiv = document.getElementById("episodesw");
+  
+  let html = " ";
+  
+  data.episodes.forEach(episode => {
+    html += `<a href="https://kiriyako.github.io/amai/watch?id=${id}&ep=${episode.id}&no=${episode.number}"> <text class="iepisode"> ${episode.number} </a> </text>`;
+  
+  });
+  
+  episodesDiv.innerHTML = `<h2>Episodes</h2>` + html;
+  });
+     
+  fetch('https://api.consumet.org/anime/gogoanime/watch/'+ ep)
 .then(response => response.json())
 .then(data => {
     
     const episodewatchDiv = document.getElementById('episodewatch');
     const refererDiv = document.createElement('div');
-    refererDiv.innerHTML = `<h2> Currently watching Episode ${ep}. Please use an adblock extension because the external <br> video player puts a lot of ads. </h2>  <iframe scrolling="no" frameBorder="0" allowfullscreen = "true" height="580" width="1000" src="${data.Referer} title="Episode" </iframe> <p></p>`
+    refererDiv.innerHTML = `<h2> Currently watching ${anime.title} Episode ${no}. You may use an adblock extension. </h2>  <iframe scrolling="no" frameBorder="0" allowfullscreen = "true" height="580" width="1000" src="${data.headers.Referer} title="Episode" </iframe> <p></p>`
 
     episodewatchDiv.appendChild(refererDiv);
 
+
+});
 
 });
 
@@ -80,15 +83,15 @@ const debouncedInput = debounce(function(event) {
 
   const query = document.querySelector("#query").value;
 
-  fetch(`https://gogoanime.consumet.org/search?keyw=${query}`)
+  fetch(`https://api.consumet.org/anime/enime/${query}`)
     .then(response => response.json())
     .then(data => {
-      data.slice(0 , 4).forEach(result => {
+      data.results.slice(0,4).forEach(result => {
         const li = document.createElement("li");
-        li.innerText = result.animeTitle;
+        li.innerText = result.title;
 
         li.addEventListener("click", function(event) {
-          window.location.href = `https://kiriyako.github.io/amai/anime?query=${result.animeId}`;
+          window.location.href = `https://kiriyako.github.io/amai/anime?id=${result.id}`;
         });
 
         autocompleteResults.appendChild(li);
