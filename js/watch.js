@@ -22,7 +22,7 @@ fetch('https://api.consumet.org/anime/gogoanime/info/'+ id)
 
     `;
     document.getElementById('info').appendChild(sideDataDiv);
-    document.title = "Watch " + anime.animeTitle + ' ' + 'Episode '+ ep + '- amai';
+    document.title = "Watch " + anime.title + ' ' + 'Episode '+ no + '- amai';
 
 fetch('https://api.consumet.org/anime/gogoanime/info/'+ id)
     .then(response => response.json())
