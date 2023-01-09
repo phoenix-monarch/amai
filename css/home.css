@@ -38,12 +38,12 @@ input{
 }
 
 a:link {
-    color: #009dff;
+    color: #0098FF;
     background-color: transparent;
     text-decoration: none;
     }
     a:visited {
-      color: #009dff;
+      color: #0098FF;
     }
 
     #rr {
@@ -92,4 +92,14 @@ a:link {
 
 #autocomplete-results li:hover {
   background-color: rgb(49, 46, 58);
+}
+
+::-moz-selection { 
+  color: rgb(255, 255, 255);
+  background: rgb(255, 0, 68);
+}
+
+::selection {
+  color: rgb(255, 255, 255);
+  background: rgb(255, 0, 68);
 }
