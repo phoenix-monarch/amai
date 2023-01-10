@@ -88,7 +88,18 @@ display:inline-block;
                   </script>                    
                               </form>
         </div>
-        
+        <div id="loading-message"><h1>Now loading...</h1></div>
+        <script>
+            document.getElementById("loading-message").style.display = "none";
+    
+    window.addEventListener("load", function() {
+      document.getElementById("loading-message").style.display = "block";
+    
+      setTimeout(function() {
+        document.getElementById("loading-message").style.display = "none";
+      }, 1000); // delay of 1 seconds (1000 milliseconds)
+    });
+        </script>
         <div id = "sidebar">
         </div> 
         <div id="episodesw"></div>

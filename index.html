@@ -29,6 +29,7 @@ margin: 0!important;
       </style>
 
   <body>
+
       <div id = "navbar">
           <div style="border-radius: 0px;" class="logo">
             <a href="https://kiriyako.github.io/amai/">  <img style="border-radius: 0px;" src="img/logo.png" alt="amai" width="130"> </a>
@@ -55,6 +56,18 @@ margin: 0!important;
                       </script>                    
                                   </form>
       </div>
+      <div id="loading-message"><h1>Now loading...</h1></div>
+      <script>
+          document.getElementById("loading-message").style.display = "none";
+  
+  window.addEventListener("load", function() {
+    document.getElementById("loading-message").style.display = "block";
+  
+    setTimeout(function() {
+      document.getElementById("loading-message").style.display = "none";
+    }, 3000); // delay of 3 seconds (3000 milliseconds)
+  });
+      </script>
 
           <div id="slideshow"></div>
       

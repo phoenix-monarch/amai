@@ -117,7 +117,19 @@ svg {
                     </script>                    
                                 </form>
             </div>
-            
+            <div id="loading-message"><h1>Now loading...</h1></div>
+            <script>
+                document.getElementById("loading-message").style.display = "none";
+        
+        window.addEventListener("load", function() {
+          document.getElementById("loading-message").style.display = "block";
+        
+          setTimeout(function() {
+            document.getElementById("loading-message").style.display = "none";
+          }, 5000); // delay of 5 seconds (5000 milliseconds)
+        });
+            </script>
+      
             <div id = "info">
             </div> 
             <div id="episodewatch">
