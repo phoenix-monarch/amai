@@ -24,7 +24,6 @@ cardDiv.style.marginTop = "20px";
   animeDiv.style.display = "inline-block";
   animeDiv.style.marginBottom = "20px";
   animeDiv.style.width = "300px";
-
   animeDiv.innerHTML = `<img height="350" width="250" src="${anime.image}" alt="${anime.title}"> <a href="https://kiriyako.github.io/amai/anime?id=${anime.id}"  </a> <h2>${anime.title}</h2>`;
   cardDiv.appendChild(animeDiv);
 }
