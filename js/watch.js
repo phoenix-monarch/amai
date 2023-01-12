@@ -11,13 +11,17 @@ fetch('https://api.consumet.org/anime/gogoanime/info/'+ id)
 .then(response => response.json())
 .then(data =>  {
     const anime = data;
+    const capitalizedAnimeType = anime.type.toLowerCase().replace(/\b[a-z]/g, function(letter) {
+      return letter.toUpperCase();
+  });
     const sideDataDiv = document.createElement('div');  
     sideDataDiv.innerHTML = ` 
 <img height="380" width="260" src = "${anime.image}"> </img> <br>
 <a href="https://kiriyako.github.io/amai/anime?id=${anime.id}"> <h2>${anime.title}</h2> </a>
+<h3>Other Names: ${anime.otherName}</h3>
 <h3>Status: ${anime.status}</h3>
 <h3>Premiered: ${anime.releaseDate}</h3>
-<h3>Type: ${anime.type}</h3>
+<h3>Type: ${capitalizedAnimeType}</h3>
 <h3>Total Episodes: ${anime.episodes.length}</h3>
 
     `;
