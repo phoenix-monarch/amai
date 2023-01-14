@@ -42,6 +42,7 @@ fetch('https://api.consumet.org/anime/gogoanime/info/'+ id)
   
   episodesDiv.innerHTML = `<h2>Episodes</h2>` + html;
   });
+
      
   fetch('https://api.consumet.org/anime/gogoanime/watch/'+ ep)
 .then(response => response.json())

@@ -1,93 +1,71 @@
 
-<html>
-  <head>
-      <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Watch Anime Online - amai</title>
-      <link href="img/favicon.ico" rel="icon" type="image/x-icon">
-      <link rel="stylesheet" href="css/home.css">
-  </head>
-  <style>
-      
-      body{
-          background-color: rgb(16, 15, 19)!important;
-          color: white!important;  
-          margin: 20px;
-      }
-      #recentrelease {
-margin-top: 50px!important;
-}
-#recentrelease img {
-margin-right: 10px!important;
-}
-
-#recentrelease p {
-margin: 0!important;
-}
-
-
-      </style>
-
-  <body>
-
-      <div id = "navbar">
-          <div style="border-radius: 0px;" class="logo">
-            <a href="https://kiriyako.github.io/amai/">  <img style="border-radius: 0px;" src="img/logo.png" alt="amai" width="130"> </a>
-          </div>
-            <nav>
-              <ul>
-                
-                  <a href="https://kiriyako.github.io/anicard/"> <li>AniCard</li> </a>
-                  <nobr>                 <li>&nbsp</li>
-             </ul>
-              </nav>
-              <br>
-                  <form> <input autocomplete="off" id="query" name="query" placeholder="Search an anime" type="input"> </nobr>
-                    <div id="autocomplete-results"></div>
-
-                      <input style="display: none;" type="text" id="query">
-                      <script>
-                   document.addEventListener('keydown', e => {
-                  if (e.key == "Enter") {
-                   const query = document.getElementById("query").value
-                  window.location.replace("https://kiriyako.github.io/amai/results?query=" + query)
+<!DOCTYPE html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search for anime - amai</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link href="img/favicon.ico" rel="icon" type="image/x-icon">
+</head>
+<style>
+    
+    body{
+        background-color: rgb(16, 15, 19)!important;
+        color: white!important;  
+        margin: 20px;
     }
-  })
-                      </script>                    
-                                  </form>
-      </div>
-      <div id="loading-message"><h1>Now loading...</h1></div>
-      <script>
-          document.getElementById("loading-message").style.display = "none";
+    #card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-top:20px;
+}
+
+
+    </style>
+<body>
+    
+    <div id = "navbar">
+        <div class="logo">
+            <a href="https://kiriyako.github.io/amai/">  <img style="border-radius: 0px;" src="img/logo.png" alt="amai" width="130"> </a>
+        </div>
+          <nav>
+            <ul>
+              
+                <a href="https://kiriyako.github.io/amai/"> <li>Home</li> </a>
+                <a href="https://kiriyako.github.io/anicard/"> <li>AniCard</li> </a>                    <nobr>                 <li>&nbsp</li>
+           </ul>
+            </nav>
+            <br>
+            <form> <input autocomplete="off" id="query" name="query" placeholder="Search an anime" type="input"> </nobr>
+              <div id="autocomplete-results"></div>
+
+              <input style="display: none;" type="text" id="query">
+              <script>
+           document.addEventListener('keydown', e => {
+          if (e.key == "Enter") {
+           const query = document.getElementById("query").value
+          window.location.replace("https://kiriyako.github.io/amai/results?query=" + query)
+}
+})
+              </script>     
+                                </form>
+    </div>
+    <h1>Top Airing</h1>
+    <div id = "card">
+    </div> 
   
-  window.addEventListener("load", function() {
-    document.getElementById("loading-message").style.display = "block";
-  
-    setTimeout(function() {
-      document.getElementById("loading-message").style.display = "none";
-    }, 3000); // delay of 3 seconds (3000 milliseconds)
-  });
-      </script>
+    <p></p>
 
-          <div id="slideshow"></div>
-      
-      <div id = "recentrelease">
-      </div> 
-      <div id = "popular">
-      </div>
-      <p></p>
 
-     
-      <div id="movies">
-      </div>
-      <div id = "footerr">
-         <h2 style="text-align:center; background-color: rgba(16, 15, 19, 0.8); color: white; font-size: 24px;">(C) amai 2022-23 <br> Note: amai does NOT host any files on it's servers. All content is provided by third-party services. <br> 
-      </h2> 
-      </div>
-     <script>
-     </script>
-  <script src = "js/home.js"></script>
-  <script src = "js/consolemessage.js"></script>
+    <div id = "footerr">
+       <h2 style="text-align:center; background-color: rgba(16, 15, 19, 0.8); color: white; font-size: 24px;">(C) amai 2022-23 <br> Note: amai does NOT host any files on it's servers. All content is provided by third-party services. <br> 
+    </h2> 
+    </div>
+   <script>
+   </script>
+<script src = "js/home.js"></script>
+<script src = "js/consolemessage.js"></script>
 
-  </body>
+</body>
 </html>
