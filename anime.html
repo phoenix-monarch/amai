@@ -34,32 +34,46 @@
 svg {
   vertical-align: middle;
 }
-#yes{
-display:inline-block;
-    border-radius: 20px;
-    border: 0px;
-    cursor: pointer;
-    background-color: #009dff;
-  
+#yes {
+  display: inline-block;
+  border-radius: 20px;
+  border: 0px;
+  cursor: pointer;
+  background-color: #009dff;
+  transition: all 0.5s ease-in-out;
 }
+
 #yes a {
   color: white;
 }
 
+#yes:hover {
+  background-color: white;
+  animation: water-fill 1s ease-in-out forwards;
+}
+
+@keyframes water-fill {
+  from {
+    background-color: #009dff;
+    box-shadow: 0 0 10px #009dff;
+
+  }
+  to {
+    background-color: rgb(255, 0, 81);
+    box-shadow: 0 0 10px rgb(255, 0, 81);
+
+  }
+}
+
 #yes1{
-display:inline-block;
-    border-radius: 20px;
-    border: 0px;
-    cursor: pointer;
-    background-color: #ffffff;
-  
+  display:inline-block;
+  border-radius: 20px;
+  border: 0px;
+  cursor: pointer;
+  background-color: #ffffff;
 }
 #yes1 a {
   color: rgb(0, 0, 0);
-}
-
-#yes:hover {
-  box-shadow: 0 0 10px #0080ff;
 }
 
 #yes1:hover {
