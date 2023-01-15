@@ -1,4 +1,4 @@
-<html>
+<!DOCTYPE html>
     <head>
         <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,9 @@
             background-color: rgb(16, 15, 19)!important;
             color: white!important;  
             margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
         }
 
         #sidebar {
@@ -24,6 +27,7 @@
   float: right;
   width: 80%;
 }
+
 #footerr {
   text-align: center;
   justify-content: center;
@@ -51,6 +55,7 @@ svg {
   background-color: white;
   animation: water-fill 1s ease-in-out forwards;
 }
+
 
 @keyframes water-fill {
   from {
@@ -80,15 +85,26 @@ svg {
   box-shadow: 0 0 10px #ffffff;
 }
 
+@media only screen and (max-width: 600px) {
+  #sidebar, #synopsis {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+.navbar-class {
+    margin-bottom: 20px;
+}
+
         </style>
     <body>
         
-        <div id = "navbar">
-            <div class="logo">
-              <a href="https://kiriyako.github.io/amai/">  <img style="border-radius: 0px;" src="img/logo.png" alt="amai" width="130"> </a>
-            </div>
-              <nav>
-                <ul>
+      <div class="navbar-class" id = "navbar">
+        <div class="logo">
+            <a href="https://kiriyako.github.io/amai/">  <img class="imglogo" style="border-radius: 0px;" src="img/logo.png" alt="amai" width="130"> </a>
+        </div>
+          <nav>
+            <ul>
                   
                     <a href="https://kiriyako.github.io/amai/"> <li>Home</li> </a>
                     <a href="https://kiriyako.github.io/anicard/"> <li>AniCard</li> </a>                    <nobr>                 <li>&nbsp</li>
