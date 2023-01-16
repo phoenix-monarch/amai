@@ -7,9 +7,6 @@ var id = url.searchParams.get("id");
 var no = url.searchParams.get("no");
 
 //Code which fetches API and displays info and other stuff
-const errorContainer = document.createElement("div");
-errorContainer.style.color = "red";
-
 fetch('https://api.consumet.org/anime/gogoanime/info/' + id)
     .then(response => response.json())
     .then(data => {
@@ -30,12 +27,7 @@ fetch('https://api.consumet.org/anime/gogoanime/info/' + id)
     `;
         document.getElementById('info').appendChild(sideDataDiv);
         document.title = "Watch " + anime.title + ' ' + 'Episode ' + no + '- amai';
-    })
-    .catch(error => {
-        errorContainer.innerText = "Error loading. Please refresh";
-        document.body.appendChild(errorContainer);
-    ;
-        
+
         fetch('https://api.consumet.org/anime/gogoanime/info/' + id)
             .then(response => response.json())
             .then(data => {
@@ -49,7 +41,6 @@ fetch('https://api.consumet.org/anime/gogoanime/info/' + id)
                 });
 
                 episodesDiv.innerHTML = `<h2>Episodes</h2>` + html;
-                
             });
 
 
