@@ -5,6 +5,9 @@ var query = url.searchParams.get("query");
 var id = url.searchParams.get("id");
 
 //Code which fetches API and displays info and other stuff
+const errorContainer = document.createElement("div");
+errorContainer.style.color = "red";
+
 fetch('https://api.consumet.org/anime/gogoanime/info/' + id)
     .then(response => response.json())
     .then(data => {
@@ -35,8 +38,13 @@ fetch('https://api.consumet.org/anime/gogoanime/info/' + id)
     `;
         document.getElementById('synopsis').appendChild(synopsisDatDiv);
         document.title = "Watch " + anime.title + ' - amai';
-    });
-
+    })
+    .catch(error => {
+        errorContainer.innerText = "Error loading. Please refresh";
+        document.body.appendChild(errorContainer);
+    ;
+    })
+    
 //Code for searching the last query the user made
 const queryInput = document.getElementById("query");
 if (localStorage.getItem("query")) {

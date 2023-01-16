@@ -1,3 +1,6 @@
+const errorContainer = document.createElement("div");
+errorContainer.style.color = "red";
+
 fetch('https://api.consumet.org/anime/gogoanime/top-airing')
     .then(response => response.json())
     .then(data => {
@@ -13,8 +16,13 @@ fetch('https://api.consumet.org/anime/gogoanime/top-airing')
                 shortTitle += "...";
             animeDiv.innerHTML = `<img height="350" width="250" src="${anime.image}" alt="${anime.title}"> <a href="https://kiriyako.github.io/amai/anime?id=${anime.id}"> <h2>${shortTitle}</h2> </a> `;
             cardDiv.appendChild(animeDiv);
-        });
-    });
+});
+})
+.catch(error => {
+    errorContainer.innerText = "Error loading. Please refresh";
+    document.body.appendChild(errorContainer);
+});
+    
 
 
 //Code for searching the last query the user made
