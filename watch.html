@@ -1,76 +1,8 @@
-<!DOCTYPE html>
-
-<head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/watch.css">
-    <link href="img/favicon.ico" rel="icon" type="image/x-icon">
-    <title>Watch - amai</title>
-</head>
-
-<body>
-
-    <div class="navbar-class" id="navbar">
-        <div class="logo">
-            <a href="https://kiriyako.github.io/amai/"> <img class="imglogo" style="border-radius: 0px;" src="img/logo.png" alt="amai" width="130">
-            </a>
-        </div>
-        <nav>
-            <ul>
-
-                <a href="https://kiriyako.github.io/amai/">
-                    <li>Home</li>
-                </a>
-                <nobr>
-                    <li>&nbsp</li>
-            </ul>
-        </nav>
-        <br>
-        <form> <input autocomplete="off" id="query" name="query" placeholder="Search an anime" type="input"> </nobr>
-            <div id="autocomplete-results"></div>
-
-            <input style="display: none;" type="text" id="query">
-            <script>
-                document.addEventListener('keydown', e => {
-              if (e.key == "Enter") {
-              const query = document.getElementById("query").value
-              window.location.replace("https://kiriyako.github.io/amai/results?query=" + query)
-  }
-  })
-            </script>
-        </form>
-    </div>
-    <div id="loading-message">
-        <h1>Now loading...</h1>
-    </div>
+<html>
+    <head>
+        <title>AMAI REDIRECTION</title>
+    </head>
     <script>
-        document.getElementById("loading-message").style.display = "none";
-      
-      window.addEventListener("load", function() {
-        document.getElementById("loading-message").style.display = "block";
-      
-        setTimeout(function() {
-          document.getElementById("loading-message").style.display = "none";
-        }, 5000); // delay of 5 seconds (5000 milliseconds)
-      });
+window.location.replace("https://project-amai.github.io/");
     </script>
-
-    <div id="info">
-    </div>
-    <div id="episodewatch">
-    </div>
-    <div id="episodesw"></div>
-    <div id="footerr">
-        <h2>(C) amai 2022-23 <br> Note: amai does NOT host any files on it's servers. All content is provided by third-party services.
-            <br>
-        </h2>
-    </div>
-    <script src="js/watch.js"></script>
-    <script src="js/consolemessage.js"></script>
-
-</body>
-
 </html>
